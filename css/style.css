@@ -1,0 +1,300 @@
+body {
+    margin: 0px;
+    color: white;
+}
+
+/* caracteristicas globales */
+.contenedor {
+    display: flex;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+p, h2 {
+    margin: 0px;
+}
+
+/* nav */
+nav {
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+nav a {
+    justify-content: center;
+    align-items: center;
+}
+
+#miniHeader {
+    background-color: #1190af;
+    justify-content: space-between;
+    width: 100vw;
+    height: 10vh;
+}
+
+h1 {
+    margin: 0px 43px;
+}
+
+nav form {
+    align-items: center;
+    height: 100%;
+    width: 40%;
+}
+
+nav form input {
+    color: rgb(200, 200, 200);
+    background-color: #1190af;
+    border: 2px solid white;
+    text-indent: 20px;
+    height: 30px;
+    width: 70%;
+}
+
+nav form input::placeholder {
+    color: white;
+}
+
+nav form input:hover::placeholder {
+    color: rgb(200, 200, 200);
+}
+
+#usuarioCarrito {
+    justify-content: space-around;
+    font-size: 1.7em;
+    width: 300px;
+}
+
+#usuarioCarrito a {
+    justify-content: center;
+    flex-grow: 1;
+}
+
+#usuarioCarrito a:hover {
+    color: #19cdfa;
+    font-size: 1.05em;
+    background-color: #0d738c;
+}
+
+nav a[class="contenedor"] >i {
+    width: 20%;
+}
+
+#miniNav {
+    background-color: #0c667c;
+    justify-content: flex-start;
+    width: 100vw;
+    height: 50px;
+}
+
+#miniNav ul {
+    justify-content: center;
+    width: 300px;
+}
+
+nav ul a {
+    width: 120px;
+}
+
+nav ul a:hover {
+    font-size: 1.05em;
+    color: #19cdfa;
+    background-color: #073c49;
+}
+
+nav ul {
+    padding: 0px;
+    margin: 0px;
+}
+
+nav li {
+    list-style-type: none;
+}
+
+/* header */
+header {
+    background-color: #1190af;
+}
+
+header img{
+    width: 100%;
+}
+
+/* lo siguiente */
+main {
+    background-color: #1190af;
+    min-height: 100vh;
+}
+
+section {
+    width: 100%;
+    height: 100vh;
+}
+
+section h2 {
+    font-size: 3em;
+    padding: 30px 0px;
+    text-align: center;
+}
+
+section > div {
+    justify-content: space-around;
+    align-items: center;
+    border: 2px solid white;
+    background-color: #0c667c;
+    margin: 0px 70px;
+    height: 70vh;
+}
+
+/* cards */
+.card {
+    flex-wrap: wrap;
+    border: 0px solid white;
+    width: 275px;
+    height: 80%;
+    padding: 0px;
+    margin: 0px;
+}
+
+.card-imagen {
+    background-size: cover;
+    width: 100%;
+    height: 70%
+}
+
+#uno {
+    background-image: url(./../img/EldenRing.jpeg);
+}
+
+#dos {
+    background-image: url(./../img/GTAV.jpeg);
+}
+
+#tres {
+    background-image: url(./../img/logitechcopia.png);
+}
+
+#cuatro {
+    background-image: url(./../img/corsair.jpeg);
+}
+
+.card-texto {
+    flex-wrap: wrap;
+    background-color: #1190af;
+    height: 30%;
+    width: 100%;
+}
+
+.card-texto p:nth-child(odd) {
+    padding-top: 5%;
+    text-align: right;
+    padding-right: 5%;
+    height: 20%;
+    width: 100%;
+}
+
+.card-texto :nth-child(2) {
+    height: 40%;
+    padding-left: 5%;
+    width: 100%;
+}
+
+/* footer */
+footer {
+    flex-direction: column;
+    height: 20vh;
+}
+
+footer>div {
+    background-color: #1190af;
+    height: 10px;
+}
+
+#redes {
+    justify-content: center;
+    font-size: 2em;
+    align-items: center;
+    color: #073c49;
+    background-color: #19cdfa;
+    height: 30%;
+}
+
+#vainas {
+    gap: 20px;
+    width: fit-content;
+}
+
+#contacto {
+    align-items: center;
+    font-size: larger;
+    text-indent: 30px;
+    background-color: #0c667c;
+    height: 50%;
+}
+
+h5 {
+    display: flex;
+    align-items: center;
+    margin: 0px;
+    height: 100%;
+}
+
+h5 a:hover {
+    font-size: 1.05em;
+}
+
+#avisos {
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    background-color: #073c49;
+    height: 20%;
+}
+
+#avisos a {
+    color: #1190af;
+}
+
+#avisos span {
+    color: #1190af;
+    text-indent: 30px;
+}
+
+#avisos p {
+    padding-right: 30px;
+    margin: 0px 10px;
+    font-size: 0.6em;
+}
+
+@media screen and (max-width: 1040px) {
+
+    nav.contenedor form {
+        display: none;
+    }
+    
+    #avisos span {
+        font-size: 0.6em;
+    }
+    
+}
+
+@media screen and (max-width: 873px) {
+
+    #contacto {
+        height: 35%;
+    }
+
+    #avisos {
+        flex-wrap: wrap;
+        height: 35%;
+    }
+
+    #avisos span {
+        width: 100%;
+        text-indent: 10px;
+    }
+
+}
