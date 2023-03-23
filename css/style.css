@@ -1,4 +1,5 @@
 body {
+    min-height: 100vh;
     margin: 0px;
     color: white;
 }
@@ -126,7 +127,7 @@ header img{
 /* lo siguiente */
 main {
     background-color: #1190af;
-    min-height: 100vh;
+    min-height: calc(80vh + 23px);
 }
 
 section {
