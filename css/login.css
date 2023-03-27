@@ -14,7 +14,7 @@ main {
 }
 
 #login>form {
-	flex-wrap: wrap;
+	display: grid;
 	width: 60%;
 }
 
@@ -30,6 +30,6 @@ main {
 }
 
 #registrarse>form {
-	flex-wrap: wrap;
+	display: grid;
 	width: 60%;
 }
