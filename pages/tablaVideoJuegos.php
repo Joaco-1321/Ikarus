@@ -1,35 +1,37 @@
 <?php
-   $driver="mysql";
-   $host="localhost";
-   $port="3306";
-   $user="root";
-   $password="";
-   $db="tiendavideojuegos";
+$driver = "mysql";
+$host = "localhost";
+$port = "3306";
+$user = "root";
+$password = "";
+$db = "tiendavideojuegos";
 
-   $dsn = "$driver:dbname=$db;host=$host;port=$port";
+$dsn = "$driver:dbname=$db;host=$host;port=$port";
 
-   try {
-       $gbd = new PDO($dsn, $user, $password);
-   } catch (PDOException $e) {
-       echo 'Falló la conexión: ' . $e->getMessage();
-   }
+try {
+    $gbd = new PDO($dsn, $user, $password);
+} catch (PDOException $e) {
+    echo 'Falló la conexión: ' . $e->getMessage();
+}
 
-   $sql = "SELECT * FROM ProductoVideojuegos";
-   $resultado = $gbd -> query($sql); 
+$sql = "SELECT * FROM ProductoVideojuegos";
+$resultado = $gbd->query($sql);
 ?>
 
 <!DOCTYPE html>
 <html>
+
 <head>
-        <meta charset="UTF-8"> 
-        <meta name="author" content="Jonás Gómez y Joaquin Napan">
-        <meta name="description" content="Página conctacto para la tienda e videojuegos">
-        <meta name="keywords" content="Contacto, Tienda, Videojuegos, Online"> 
-        <meta name="viewport" content="width=device-width,intial-scale=1.0"> 
-        <link rel="stylesheet" type="text/css" href="./../css/tablaVideoJuegos.css">
-        <link rel="stylesheet" href="./../css/fontawesome/css/all.css">
-        <Title>Tabla Videojuegos</Title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Jonás Gómez y Joaquin Napan">
+    <meta name="description" content="Página conctacto para la tienda e videojuegos">
+    <meta name="keywords" content="Contacto, Tienda, Videojuegos, Online">
+    <meta name="viewport" content="width=device-width,intial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./../css/tablaVideoJuegos.css">
+    <link rel="stylesheet" href="./../css/fontawesome/css/all.css">
+    <Title>Tabla Videojuegos</Title>
 </head>
+
 <body>
     <nav class="contenedor">
         <div class="contenedor" id="miniHeader">
@@ -62,31 +64,31 @@
     <main>
         <button class="crear">Crear</button>
         <?php
-            echo '<table>';
-                    echo '<thead>';
-                        echo '<th>' . 'id' . '</th>';
-                        echo '<th>' . 'Nombre' . '</th>';
-                        echo '<th>' . 'Tipo' . '</th>';
-                        echo '<th>' . 'Precio' . '</th>';
-                        echo '<th>' . 'Stock' . '</th>';
-                        echo '<th>' . 'Review' . '</th>';
-                        echo '<th>' . 'Proveedor ID' . '</th>';
-                    echo '</thead>';
-                    echo '<tbody>';
-                        foreach($resultado as $row){
-                            echo '<tr>';
-                            echo '<td>' . $row['id'] . '</td>';
-                            echo '<td>' . $row['Nombre'] . '</td>';
-                            echo '<td>' . $row['Tipo'] . '</td>';
-                            echo '<td>' . $row['Precio'] . '</td>';
-                            echo '<td>' . $row['Stock'] . '</td>';
-                            echo '<td>' . $row['Review'] . '</td>';
-                            echo '<td>' . $row['Proveedor_id'] . '</td>';
-                            echo '</tr>';
-                        }
-                    echo '</tbody>';
-            echo '</table>'
-           ?>
+        echo '<table>';
+        echo '<thead>';
+        echo '<th>' . 'id' . '</th>';
+        echo '<th>' . 'Nombre' . '</th>';
+        echo '<th>' . 'Tipo' . '</th>';
+        echo '<th>' . 'Precio' . '</th>';
+        echo '<th>' . 'Stock' . '</th>';
+        echo '<th>' . 'Review' . '</th>';
+        echo '<th>' . 'Proveedor ID' . '</th>';
+        echo '</thead>';
+        echo '<tbody>';
+        foreach ($resultado as $row) {
+            echo '<tr>';
+            echo '<td>' . $row['id'] . '</td>';
+            echo '<td>' . $row['Nombre'] . '</td>';
+            echo '<td>' . $row['Tipo'] . '</td>';
+            echo '<td>' . $row['Precio'] . '</td>';
+            echo '<td>' . $row['Stock'] . '</td>';
+            echo '<td>' . $row['Review'] . '</td>';
+            echo '<td>' . $row['Proveedor_id'] . '</td>';
+            echo '</tr>';
+        }
+        echo '</tbody>';
+        echo '</table>'
+        ?>
     </main>
     <footer class="contenedor">
         <div class="contenedor" id="redes">
@@ -103,11 +105,11 @@
             <h5><a href="contacto.html">Contáctanos</a></h5>
         </div>
         <div class="contenedor" id="avisos">
-            <span><a href="">Aviso legal</a>, <a href="">Términos y condiciones</a>, <a href="">Privacidad</a>, <a
-                    href="">Cookies</a>.</span>
+            <span><a href="">Aviso legal</a>, <a href="">Términos y condiciones</a>, <a href="">Privacidad</a>, <a href="">Cookies</a>.</span>
             <p>Copyright © 2022 Tienda de videojuegos. Todos los derechos reservados. SA “Empresa Chula”, C/ Bernardino
                 Obregón 25, 28012. Madrid, España</p>
         </div>
     </footer>
 </body>
+
 </html>
