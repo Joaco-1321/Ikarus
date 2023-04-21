@@ -1,35 +1,41 @@
 main {
-	justify-content: center;
-	align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 #login {
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	background-color: white;
-	height: 450px;
-	width: 450px;
-	color: black;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px 0px;
+  background-color: white;
+  height: 450px;
+  width: 450px;
+  border: 5px solid white;
+  background-color: #0d738c;
 }
 
-#login>form {
-	display: grid;
-	width: 60%;
+form > input[type="button"] {
+  grid-column: 1 / 3;
+  width: 50%;
+  margin: auto;
 }
 
 #registrarse {
-	display: none;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	background-color: white;
-	height: 450px;
-	width: 450px;
-	color: black;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px 0px;
+  height: 450px;
+  width: 450px;
+  background-color: #0d738c;
+  border: 5px solid white;
 }
 
-#registrarse>form {
-	display: grid;
-	width: 60%;
+form {
+  display: grid;
+  grid-template: auto / 1fr 1fr;
+  gap: 10px 0px;
+  width: 60%;
 }
