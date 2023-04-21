@@ -1,5 +1,5 @@
 const login = document.querySelector("#login"),
-  registrarse = document.querySelector("#registrarse");
+registrarse = document.querySelector("#registrarse");
 
 let bit = false;
 

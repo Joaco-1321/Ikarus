@@ -1,3 +1,23 @@
+<?php
+   $driver="mysql";
+   $host="localhost";
+   $port="3306";
+   $user="root";
+   $password="";
+   $db="tiendavideojuegos";
+
+   $dsn = "$driver:dbname=$db;host=$host;port=$port";
+
+   try {
+       $gbd = new PDO($dsn, $user, $password);
+   } catch (PDOException $e) {
+       echo 'Falló la conexión: ' . $e->getMessage();
+   }
+
+   $sql = "SELECT * FROM ProductoVideojuegos";
+   $resultado = $gbd -> query($sql); 
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,9 +26,9 @@
         <meta name="description" content="Página conctacto para la tienda e videojuegos">
         <meta name="keywords" content="Contacto, Tienda, Videojuegos, Online"> 
         <meta name="viewport" content="width=device-width,intial-scale=1.0"> 
-        <link rel="stylesheet" type="text/css" href="./../css/tablaPerifericos.css">
+        <link rel="stylesheet" type="text/css" href="./../css/tablaVideoJuegos.css">
         <link rel="stylesheet" href="./../css/fontawesome/css/all.css">
-        <Title>Tabla Periféricos</Title>
+        <Title>Tabla Videojuegos</Title>
 </head>
 <body>
     <nav class="contenedor">
@@ -41,35 +61,32 @@
     </nav>
     <main>
         <button class="crear">Crear</button>
-        <table>
-            <tr> 
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>Precio</th>
-                <th>Puntuación</th>
-                <th>Stock</th>
-                <th>Proveedor</th>
-                <th>Acciones</th>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>Logitech</td>
-                <td>19.99€</td>
-                <td>7</td>
-                <td>13</td>
-                <td>Pc Componenetes</td>
-                <td><button>Editar</button><button>Elimiar</button><button>Mostrar</button></td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Corsair</td>
-                <td>119.99€</td>
-                <td>9</td>
-                <td>13</td>
-                <td>Electronicards</td>
-                <td><button>Editar</button><button>Elimiar</button><button>Mostrar</button></td>
-            </tr>
-        </table>
+        <?php
+            echo '<table>';
+                    echo '<thead>';
+                        echo '<th>' . 'id' . '</th>';
+                        echo '<th>' . 'Nombre' . '</th>';
+                        echo '<th>' . 'Tipo' . '</th>';
+                        echo '<th>' . 'Precio' . '</th>';
+                        echo '<th>' . 'Stock' . '</th>';
+                        echo '<th>' . 'Review' . '</th>';
+                        echo '<th>' . 'Proveedor ID' . '</th>';
+                    echo '</thead>';
+                    echo '<tbody>';
+                        foreach($resultado as $row){
+                            echo '<tr>';
+                            echo '<td>' . $row['id'] . '</td>';
+                            echo '<td>' . $row['Nombre'] . '</td>';
+                            echo '<td>' . $row['Tipo'] . '</td>';
+                            echo '<td>' . $row['Precio'] . '</td>';
+                            echo '<td>' . $row['Stock'] . '</td>';
+                            echo '<td>' . $row['Review'] . '</td>';
+                            echo '<td>' . $row['Proveedor_id'] . '</td>';
+                            echo '</tr>';
+                        }
+                    echo '</tbody>';
+            echo '</table>'
+           ?>
     </main>
     <footer class="contenedor">
         <div class="contenedor" id="redes">
