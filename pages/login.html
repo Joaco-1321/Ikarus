@@ -60,7 +60,15 @@
         <label for="usuario">usuario</label>
         <input type="text" name="usuario" />
         <label for="psswd">contraseña</label>
-        <input type="password" name="psswd" />
+        <input type="password" name="psswd" id="contraseña" onblur="contrasena()" required/>
+        <div class="contra"></div>
+        <div class="pruebas">
+          <span id="minuscula">Una letra <b>minúscula</b></span>
+          <span id="mayuscula">Una letra <b>mayúscula</b></span>
+          <span id="dosseguidos"><b>Dos</b> dígitos seguidos</span>
+          <span id="signo">Un cáracter <b>especial</b> (- _ . + @)</span>
+          <span id="longitud">Longitud <b>mínima</b> de 10 dígitos</span>
+        </div>
         <input type="button" value="enviar" />
       </form>
       <button onclick="cambio()">logeate</button>

@@ -39,3 +39,61 @@ form {
   gap: 10px 0px;
   width: 60%;
 }
+
+.contra{
+  background-color: #0d738c;
+  height: 105px;
+  width: 1px;
+}
+.pruebas{
+  border: solid black 1px;
+  background-color: white;
+  position: absolute;
+  margin-top: 93px;
+  height: 103px;
+  width: 268px;
+}
+
+.incorrecto{
+  color: red;
+}
+
+.incorrecto::before{
+  content: " ✘ ";
+}
+
+.correcto {
+  color: green;
+}
+
+.correcto::before {
+  content: " ✔ ";
+}
+
+#minuscula {
+  position: absolute;
+}
+#mayuscula {
+  position: absolute;
+  margin-top: 20px;
+}
+#dosseguidos {
+  position: absolute;
+  margin-top: 40px;
+}
+#signo {
+  position: absolute;
+  margin-top: 60px;
+}
+#longitud {
+  position: absolute;
+  margin-top: 80px;
+}
+
+span{
+  color: red;
+}
+
+span::before {
+  content: "✘ ";
+}
