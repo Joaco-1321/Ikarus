@@ -1,21 +1,6 @@
 <?php
-$driver = "mysql";
-$host = "localhost";
-$port = "3306";
-$user = "root";
-$password = "";
-$db = "ikarus";
-
-$dsn = "$driver:dbname=$db;host=$host;port=$port";
-
-try {
-  $gbd = new PDO($dsn, $user, $password);
-} catch (PDOException $e) {
-  echo 'Falló la conexión: ' . $e->getMessage();
-}
-
-$sql = "SELECT * FROM producto WHERE tipo='videojuego'";
-$resultado = $gbd->query($sql);
+  require_once('../php/Database.php');
+  $resultado = Database::getAll(2);
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +13,7 @@ $resultado = $gbd->query($sql);
   <meta name="keywords" content="Contacto, Tienda, Videojuegos, Online">
   <meta name="viewport" content="width=device-width,intial-scale=1.0">
   <link rel="stylesheet" href="../styles/style.css">
-  <link rel="stylesheet" type="text/css" href="./../styles/tablaVideoJuegos.css">
+  <link rel="stylesheet" type="text/css" href="./../styles/tablaPerifericos.css">
   <link rel="stylesheet" href="./../styles/fontawesome/css/all.css">
   <Title>Tabla Videojuegos</Title>
 </head>
@@ -63,33 +48,35 @@ $resultado = $gbd->query($sql);
     </div>
   </nav>
   <main>
-    <button class="crear">Crear</button>
-    <?php
-    echo '<table>';
-    echo '<thead>';
-    echo '<th>' . 'id' . '</th>';
-    echo '<th>' . 'Nombre' . '</th>';
-    echo '<th>' . 'Tipo' . '</th>';
-    echo '<th>' . 'Precio' . '</th>';
-    echo '<th>' . 'Stock' . '</th>';
-    echo '<th>' . 'Review' . '</th>';
-    echo '<th>' . 'Proveedor ID' . '</th>';
-    echo '</thead>';
-    echo '<tbody>';
-    foreach ($resultado as $row) {
-      echo '<tr>';
-      echo '<td>' . $row['id'] . '</td>';
-      echo '<td>' . $row['nombre'] . '</td>';
-      echo '<td>' . $row['tipo'] . '</td>';
-      echo '<td>' . $row['precio'] . '</td>';
-      echo '<td>' . $row['stock'] . '</td>';
-      echo '<td>' . $row['review'] . '</td>';
-      echo '<td>' . $row['proveedor_id'] . '</td>';
-      echo '</tr>';
-    }
-    echo '</tbody>';
-    echo '</table>'
-    ?>
+    <button class="crear"><a href="create.php">Crear</a></button>
+    <table>
+      <?php
+        echo '<thead>';
+          echo '<th>' . 'id' . '</th>';
+          echo '<th>' . 'Nombre' . '</th>';
+          echo '<th>' . 'Tipo' . '</th>';
+          echo '<th>' . 'Precio' . '</th>';
+          echo '<th>' . 'Stock' . '</th>';
+          echo '<th>' . 'Review' . '</th>';
+          echo '<th>' . 'Acciones' . '</th>';
+        echo '</thead>';
+        echo '<tbody>';
+          foreach ($resultado as $row) {
+          echo '<tr>';
+            echo '<td>' . $row['id'] . '</td>';
+            echo '<td>' . $row['nombre'] . '</td>';
+            echo '<td>' . $row['tipo'] . '</td>';
+            echo '<td>' . $row['precio'] . '</td>';
+            echo '<td>' . $row['stock'] . '</td>';
+            echo '<td>' . $row['review'] . '</td>';
+            echo "<td> <a href='edit.php?id=".$row['id']."'>Editar</a> 
+                      <a href='delete.php?id=".$row['id']."'>Eliminar</a> </td>";
+          echo '</tr>';
+          }
+        echo '</tbody>';
+      ?>  
+    </table>
+
   </main>
   <footer class="contenedor">
     <div class="contenedor" id="redes">

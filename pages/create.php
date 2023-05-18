@@ -1,8 +1,3 @@
-<?php
-  require_once('../php/Database.php');
-  $resultado = Database::getAll(1);
-?>
-
 <!DOCTYPE html>
 <html>
 
@@ -13,7 +8,7 @@
   <meta name="keywords" content="Contacto, Tienda, Videojuegos, Online">
   <meta name="viewport" content="width=device-width,intial-scale=1.0">
   <link rel="stylesheet" href="../styles/style.css">
-  <link rel="stylesheet" type="text/css" href="./../styles/tablaPerifericos.css">
+  <link rel="stylesheet" type="text/css" href="./../styles/crear.css">
   <link rel="stylesheet" href="./../styles/fontawesome/css/all.css">
   <Title>Tabla Periféricos</Title>
 </head>
@@ -47,37 +42,17 @@
       </ul>
     </div>
   </nav>
-  <main>
-    <button class="crear"><a href="create.php">Crear</a></button>
-    <?php
-      echo '<table>';
-        echo '<thead>';
-          echo '<th>' . 'id' . '</th>';
-          echo '<th>' . 'Nombre' . '</th>';
-          echo '<th>' . 'Tipo' . '</th>';
-          echo '<th>' . 'Precio' . '</th>';
-          echo '<th>' . 'Stock' . '</th>';
-          echo '<th>' . 'Review' . '</th>';
-          echo '<th>' . 'Acciones' . '</th>';
-        echo '</thead>';
-        echo '<tbody>';
-          foreach ($resultado as $row) {
-            echo '<tr>';
-              echo '<td>' . $row['id'] . '</td>';
-              echo '<td>' . $row['nombre'] . '</td>';
-              echo '<td>' . $row['tipo'] . '</td>';
-              echo '<td>' . $row['precio'] . '</td>';
-              echo '<td>' . $row['stock'] . '</td>';
-              echo '<td>' . $row['review'] . '</td>';
-              echo "<td> <a href='edit.php?id=".$row['id']."'>Editar</a> 
-              <a href='delete.php?id=".$row['id']."'>Eliminar</a> </td>";
-            echo '</tr>';
-          }
-        echo '</tbody>';
-      echo '</table>'
-    ?>
-
-  </main>
+    <main>
+    <form action="save.php" method="POST" class="crear">
+        <input type="text" name="nombre" placeholder="Inserta un nombre">
+        <input type="text" name="tipo" placeholder="Inserta un tipo">
+        <input type="text" name="precio" placeholder="Inserta un precio">
+        <input type="text" name="stock" placeholder="Inserta un stock">
+        <input type="text" name="review" placeholder="Inserta una review">
+        <input type="text" name="ruta" placeholder="Inserta una ruta">
+        <button type="submit">Crear</button>
+    </form>
+    </main>
   <footer class="contenedor">
     <div class="contenedor" id="redes">
       <div class="contenedor" id="vainas">

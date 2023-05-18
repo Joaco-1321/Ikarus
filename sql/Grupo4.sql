@@ -28,13 +28,6 @@ CREATE TABLE IF NOT EXISTS pedido (
 	FOREIGN KEY(usuario_id) REFERENCES usuario(id)
 )ENGINE = INNODB;
 
-CREATE TABLE if NOT EXISTS proveedor (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	CIF VARCHAR(15) NOT NULL UNIQUE,
-	nombre VARCHAR(45) NOT NULL,
-	dirección VARCHAR(45),
-	telefono VARCHAR(45)
-)ENGINE = INNODB;
 
 CREATE TABLE if NOT EXISTS producto (
 	id INT PRIMARY KEY AUTO_INCREMENT,
@@ -43,9 +36,7 @@ CREATE TABLE if NOT EXISTS producto (
 	precio DECIMAL(10, 2) NOT NULL,
 	stock INT NOT NULL,
 	review INT,
-	ruta VARCHAR(50) NOT NULL UNIQUE,
-	proveedor_id INT NOT NULL,
-	FOREIGN KEY(proveedor_id) REFERENCES proveedor(id)
+	ruta VARCHAR(50) NOT NULL UNIQUE
 )ENGINE = INNODB;
 
 CREATE TABLE if NOT EXISTS pedido_has_producto (
@@ -70,15 +61,10 @@ INSERT INTO pedido (fechaRealizacion, fechaEnvio, usuario_id) VALUES (NOW(), '20
 INSERT INTO pedido (fechaRealizacion, usuario_id) VALUES (NOW(), 2);
 INSERT INTO pedido (fechaRealizacion, usuario_id) VALUES (NOW(), 2);
 
-INSERT INTO proveedor VALUES (null, 'A692547853G4', 'Game', 'Islazul Madrid', 987654321);
-INSERT INTO proveedor VALUES (null, 'R666886653U4', 'PC Componentes', 'Callo', 956843221);
-INSERT INTO proveedor VALUES (null, 'Y692321113O4', 'Electronicas', 'Plaza Eliptica', 9624781354);
-INSERT INTO proveedor VALUES (null, 'K676355853H4', 'Media Markt', 'Nasica', 9647863225);
-
-INSERT INTO producto (nombre, tipo, precio, stock, proveedor_id, ruta) VALUES ('Logitech', 'Periferico', 24.99, 34, 2, 'img/logitech.png');
-INSERT INTO producto (nombre, tipo, precio, stock, proveedor_id, ruta) VALUES ('GTA V', 'VideoJuego', 14.99, 56, 1, 'img/GTAV.jpeg');
-INSERT INTO producto (nombre, tipo, precio, stock, review, proveedor_id, ruta) VALUES ('Elden Ring', 'VideoJuego', 59.99, 67, 10, 3, 'img/EldenRing.jpeg');
-INSERT INTO producto (nombre, tipo, precio, stock, review, proveedor_id, ruta) VALUES ('Corsair', 'Periferico', 29.99, 49, 6, 2, 'img/corsair.jpeg');
+INSERT INTO producto (nombre, tipo, precio, stock, ruta) VALUES ('Logitech', 'Periferico', 24.99, 34, 'img/logitech.png');
+INSERT INTO producto (nombre, tipo, precio, stock, ruta) VALUES ('GTA V', 'VideoJuego', 14.99, 56, 'img/GTAV.jpeg');
+INSERT INTO producto (nombre, tipo, precio, stock, review, ruta) VALUES ('Elden Ring', 'VideoJuego', 59.99, 67, 10, 'img/EldenRing.jpeg');
+INSERT INTO producto (nombre, tipo, precio, stock, review, ruta) VALUES ('Corsair', 'Periferico', 29.99, 49, 6, 'img/corsair.jpeg');
 
 INSERT INTO pedido_has_producto VALUES (3, 1, 3);
 INSERT INTO pedido_has_producto VALUES (4, 2, 2);
