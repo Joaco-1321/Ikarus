@@ -1,11 +1,13 @@
 <?php
-    $tabla = $_GET['tabla'];
-    $id = $_GET['id'];
+
+    $tabla = $_POST['tabla'];
+    $datos = [$_POST['id'], $_POST['nombre'], $_POST['tipo'], $_POST['precio'], $_POST['stock'], $_POST['review'], $_POST['ruta']];
     require_once('../php/Database.php');
-    Database::delete($id);
+    Database::update($datos);
     if($tabla == 'perifericos'){
         header('Location: tablaPerifericos.php');
     } else if($tabla == 'videojuegos'){
         header('Location: tablaVideojuegos.php');
     }
+
 ?>

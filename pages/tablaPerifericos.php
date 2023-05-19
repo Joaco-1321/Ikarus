@@ -69,8 +69,8 @@
               echo '<td>' . $row['precio'] . '</td>';
               echo '<td>' . $row['stock'] . '</td>';
               echo '<td>' . $row['review'] . '</td>';
-              echo "<td> <a href='edit.php?id=".$row['id']."'>Editar</a> 
-              <a href='delete.php?id=".$row['id']."'>Eliminar</a> </td>";
+              echo "<td> <a href='edit.php?tabla=perifericos&id=".$row['id']."'>Editar</a> 
+              <a href='delete.php?tabla=perifericos&id=".$row['id']."'>Eliminar</a> </td>";
             echo '</tr>';
           }
         echo '</tbody>';

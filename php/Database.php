@@ -36,7 +36,7 @@ class Database
 
   public static function findById($id)
   {
-    $sql = "SELECT * FROM produco WHERE id = $id";
+    $sql = "SELECT * FROM producto WHERE id = $id";
     $ordenador = self::conectar()->query($sql);
     return $ordenador->fetch(PDO::FETCH_ASSOC);
   }
@@ -49,14 +49,14 @@ class Database
 
   public static function update($arr)
   {
-    $sql = "UPDATE ordenadores SET marca = '$arr[1]', modelo = '$arr[2]', precio = $arr[3], descripcion = '$arr[4]' WHERE id = $arr[0]";
-    return self::conectar()->query($sql);
+    $sql = "UPDATE producto SET nombre = '$arr[1]', tipo = '$arr[2]', precio = $arr[3], stock = $arr[4], review = $arr[5], ruta='$arr[6]' WHERE id = $arr[0]";
+    self::conectar()->query($sql);
   }
 
   public static function delete($id)
   {
     $sql = "DELETE FROM producto WHERE id = $id";
-    return self::conectar()->query($sql);
+    self::conectar()->query($sql);
   }
 
   public static function login($email, $password)
