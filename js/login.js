@@ -15,10 +15,10 @@ function cambio() {
   }
 }
 
-let boton_enviar = document.getElementById('botonEnviar');
+let boton_enviar = document.getElementById("botonEnviar");
 boton_enviar.disabled = true;
 
-function contrasena(){
+function contrasena() {
   let valuePass = document.getElementById("contraseña");
   let minus = document.getElementById("minuscula");
   let mayus = document.getElementById("mayuscula");
@@ -27,7 +27,7 @@ function contrasena(){
   let longitud = document.getElementById("longitud");
 
   let minusculas = /[a-z]/g;
-  if(valuePass.value.match(minusculas)){
+  if (valuePass.value.match(minusculas)) {
     minus.classList.remove("incorrecto");
     minus.classList.add("correcto");
     boton_enviar.disabled = false;
@@ -38,7 +38,7 @@ function contrasena(){
   }
 
   let mayusculas = /[A-Z]/g;
-  if(valuePass.value.match(mayusculas)){
+  if (valuePass.value.match(mayusculas)) {
     mayus.classList.remove("incorrecto");
     mayus.classList.add("correcto");
     boton_enviar.disabled = false;
@@ -49,7 +49,7 @@ function contrasena(){
   }
 
   let digito = /\d{2}/g;
-  if(valuePass.value.match(digito)){
+  if (valuePass.value.match(digito)) {
     digitos.classList.remove("incorrecto");
     digitos.classList.add("correcto");
     boton_enviar.disabled = false;
@@ -60,7 +60,7 @@ function contrasena(){
   }
 
   let signoss = /[-.+_@]/g;
-  if(valuePass.value.match(signoss)){
+  if (valuePass.value.match(signoss)) {
     signos.classList.remove("incorrecto");
     signos.classList.add("correcto");
     boton_enviar.disabled = false;
@@ -69,8 +69,8 @@ function contrasena(){
     signos.classList.add("incorrecto");
     boton_enviar.disabled = true;
   }
-  
-  if(valuePass.value.length >= 10){
+
+  if (valuePass.value.length >= 10) {
     longitud.classList.remove("incorrecto");
     longitud.classList.add("correcto");
     boton_enviar.disabled = false;
@@ -79,5 +79,4 @@ function contrasena(){
     longitud.classList.add("incorrecto");
     boton_enviar.disabled = true;
   }
-
 }

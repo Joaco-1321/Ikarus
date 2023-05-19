@@ -1,6 +1,6 @@
 <?php
   require_once('../php/Database.php');
-  $resultado = Database::getAll(2);
+  $resultado = Database::getAll(Database::VIDEOJUEGOS);
 ?>
 
 <!DOCTYPE html>

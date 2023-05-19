@@ -44,12 +44,12 @@
   </nav>
   <main class="contenedor">
     <div class="contenedor" id="login">
-      <form action="" method="">
+      <form action="../php/comprobar.php" method="post">
         <label for="usuario">usuario</label>
-        <input type="text" name="usuario" />
+        <input type="text" name="user" />
         <label for="psswd">contraseña</label>
-        <input type="password" name="psswd" />
-        <input type="button" value="enviar" />
+        <input type="password" name="pass" />
+        <input type="submit" value="enviar" />
       </form>
       <button onclick="cambio()">regístrate</button>
     </div>
@@ -69,7 +69,7 @@
           <span id="signo">Un cáracter <b>especial</b> (- _ . + @)</span>
           <span id="longitud">Longitud <b>mínima</b> de 10 dígitos</span>
         </div>
-        <input type="button" value="enviar" id="botonEnviar " />
+        <input type="submit" value="enviar" />
       </form>
       <button onclick="cambio()">logeate</button>
     </div>

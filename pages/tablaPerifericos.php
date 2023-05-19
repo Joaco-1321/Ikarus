@@ -1,6 +1,6 @@
 <?php
   require_once('../php/Database.php');
-  $resultado = Database::getAll(1);
+  $resultado = Database::getAll(Database::PERIFERICOS);
 ?>
 
 <!DOCTYPE html>

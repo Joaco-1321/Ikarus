@@ -1,6 +1,9 @@
 <?php
 class Database
 {
+  public const PERIFERICOS = 1;
+  public const VIDEOJUEGOS = 2;
+
   public static function conectar()
   {
     $drvr = 'mysql';
@@ -23,13 +26,13 @@ class Database
 
   public static function getAll($tabla)
   {
-    if($tabla == 1){
+    if ($tabla == 1) {
       $sql = "SELECT * FROM producto where tipo='periferico'";
-      $resultado = self::conectar()->query($sql); 
+      $resultado = self::conectar()->query($sql);
     }
-    if($tabla == 2){
+    if ($tabla == 2) {
       $sql = "SELECT * FROM producto where tipo='videojuego'";
-      $resultado = self::conectar()->query($sql); 
+      $resultado = self::conectar()->query($sql);
     }
     return $resultado;
   }
@@ -61,7 +64,7 @@ class Database
 
   public static function login($email, $password)
   {
-    $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
+    $sql = "SELECT * FROM usuario WHERE email = '$email' AND contrasena = '$password'";
 
     $user = self::conectar()->query($sql);
 

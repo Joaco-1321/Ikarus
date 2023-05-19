@@ -1,7 +1,16 @@
 <?php
 require_once('php/Database.php');
-$db = new Database();
-$db->conectar('root', '');
+$nombre = 'Usuario';
+
+session_start();
+
+if (isset($_SESSION['user'])) {
+  if ($_SESSION['user']['rol_id'] == 1) {
+    header('Location: pages/tablaPerifericos.php');
+  } else if ($_SESSION['user']['rol_id'] == 2) {
+    $nombre = $_SESSION['user']['usuario'];
+  }
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -30,18 +39,22 @@ $db->conectar('root', '');
       </form>
       <div class="contenedor" id="usuarioCarrito">
         <a href="#" class="contenedor"><i class="fas fa-shopping-bag"></i></a>
-        <a href="pages/login.html" class="contenedor">
+        <a href="pages/login.php" class="contenedor">
           <i class="fas fa-user"></i>
-          <p>Usuario</p>
+          <p>
+            <?php
+            echo $nombre;
+            ?>
+          </p>
         </a>
       </div>
     </div>
     <div class="contenedor" id="miniNav">
       <ul class="contenedor">
-        <a href="pages/perifericos.html" class="contenedor">
+        <a href="pages/perifericos.php" class="contenedor">
           <li>Periféricos <i class="fas fa-headset"></i></i></li>
         </a>
-        <a href="pages/videojuegos.html" class="contenedor">
+        <a href="pages/videojuegos.php" class="contenedor">
           <li>Videojuegos <i class="fas fa-gamepad"></i></li>
         </a>
       </ul>
@@ -55,7 +68,7 @@ $db->conectar('root', '');
       <h2>Nuevos Juegos</h2>
       <div class="contenedor">
         <?php
-        $videojuegos = $db->getVideojuegos();
+        $videojuegos = Database::getAll(Database::VIDEOJUEGOS);
         foreach ($videojuegos as $fila) {
           echo '<div class ="contenedor card">';
           echo '<div class ="card-imagen" style="background-image:url(\'' . $fila['ruta'] . '\')"></div>';
@@ -73,7 +86,7 @@ $db->conectar('root', '');
       <h2>Nuevos periféricos</h2>
       <div class="contenedor">
         <?php
-        $perifericos = $db->getPerifericos();
+        $perifericos = Database::getAll(Database::PERIFERICOS);
         foreach ($perifericos as $fila) {
           echo '<div class ="contenedor card">';
           echo '<div class ="card-imagen" style="background-image:url(\'' . $fila['ruta'] . '\')"></div>';
@@ -100,7 +113,7 @@ $db->conectar('root', '');
       </div>
     </div>
     <div class="contenedor" id="contacto">
-      <h5><a href="pages/contacto.html">Contáctanos</a></h5>
+      <h5><a href="pages/contacto.php">Contáctanos</a></h5>
     </div>
     <div class="contenedor" id="avisos">
       <span><a href="">Aviso legal</a>, <a href="">Términos y condiciones</a>, <a href="">Privacidad</a>, <a href="">Cookies</a>.</span>
