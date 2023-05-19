@@ -1,7 +1,7 @@
 <?php
     $tabla = $_GET['tabla'];
     $id = $_GET['id'];
-    require_once('../php/Database.php');
+    require_once('../db/Database.php');
     Database::delete($id);
     if($tabla == 'perifericos'){
         header('Location: tablaPerifericos.php');

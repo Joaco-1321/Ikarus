@@ -46,7 +46,7 @@ class Database
 
   public static function save($arr)
   {
-    $sql = "INSERT INTO producto(nombre, tipo, precio, stock, review, ruta) VALUES('$arr[0]', '$arr[1]', $arr[2], $arr[3], '$arr[4]', '$arr[5]')";
+    $sql = "INSERT INTO producto(nombre, tipo, precio, stock, review, ruta) VALUES('$arr[0]', '$arr[1]', $arr[2], $arr[3], $arr[4], '$arr[5]')";
     self::conectar()->query($sql);
   }
 
