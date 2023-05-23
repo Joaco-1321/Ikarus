@@ -44,9 +44,22 @@ class Database
     return $ordenador->fetch(PDO::FETCH_ASSOC);
   }
 
+  public static function findByEmail($email, $user)
+  {
+    $sql = "SELECT * FROM usuario WHERE email = '$email' and usuario = '$user'";
+    $user = self::conectar()->query($sql);
+    return $user->fetch(PDO::FETCH_ASSOC);
+  }
+
   public static function save($arr)
   {
     $sql = "INSERT INTO producto(nombre, tipo, precio, stock, review, ruta) VALUES('$arr[0]', '$arr[1]', $arr[2], $arr[3], $arr[4], '$arr[5]')";
+    self::conectar()->query($sql);
+  }
+
+  public static function nuevoUser($arr)
+  {
+    $sql = "INSERT INTO usuario (usuario, email, contrasena, rol_id) VALUES ('$arr[1]', '$arr[0]', '$arr[2]', 1)";
     self::conectar()->query($sql);
   }
 

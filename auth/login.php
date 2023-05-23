@@ -44,7 +44,7 @@ if (isset($_SESSION['user'])) {
       <button onclick="cambio()">regístrate</button>
     </div>
     <div class="contenedor" id="registrarse">
-      <form action="" method="post">
+      <form action="registro.php" method="post">
         <label for="correo">correo</label>
         <input type="text" name="correo" />
         <label for="usuario">usuario</label>
