@@ -1,6 +1,6 @@
 # Ikarus
-Sergio, te prometo una remodelación ***entera*** del html y css.
-<br>
-confía en mí.
-<br>
-&nbsp;&nbsp;&nbsp;&nbsp; - Joaquin
+
+Sergio, te fallé.  
+Ni web ni diseño es lo mío.  
+
+    - Joaquin

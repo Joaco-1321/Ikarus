@@ -48,8 +48,8 @@ CREATE TABLE if NOT EXISTS pedido_has_producto (
 	PRIMARY KEY(Pedido_id, Producto_id)
 )ENGINE = INNODB;
 
-INSERT INTO rol VALUES(NULL, 'usuario');
-INSERT INTO rol VALUES(NULL, 'admin');
+INSERT INTO rol(nombre) VALUES('usuario');
+INSERT INTO rol(nombre) VALUES('admin');
 
 INSERT INTO usuario (usuario, email, contrasena, rol_id) VALUES ('JoaquinAdmin', 'joaquin@imf.com', 'joaquin1234', 2);
 INSERT INTO usuario (usuario, email, contrasena, rol_id) VALUES ('JonasAdmin', 'jonas@imf.com', 'jonas1234', 2);

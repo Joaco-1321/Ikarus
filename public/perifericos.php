@@ -6,9 +6,9 @@ $nombre = 'Usuario';
 session_start();
 
 if (isset($_SESSION['user'])) {
-  if ($_SESSION['user']['rol_id'] == 1) {
+  if ($_SESSION['user']['rol_id'] == 2) {
     header('Location: ../private/tablaPerifericos.php');
-  } else if ($_SESSION['user']['rol_id'] == 2) {
+  } else if ($_SESSION['user']['rol_id'] == 1) {
     $nombre = $_SESSION['user']['usuario'];
   }
 }

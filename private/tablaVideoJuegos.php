@@ -8,9 +8,9 @@ $resultado = Database::getAll(Database::VIDEOJUEGOS);
 session_start();
 
 if (isset($_SESSION['user'])) {
-  if ($_SESSION['user']['rol_id'] == 2) {
+  if ($_SESSION['user']['rol_id'] == 1) {
     header('Location: ../index.php');
-  } else if ($_SESSION['user']['rol_id'] == 1) {
+  } else if ($_SESSION['user']['rol_id'] == 2) {
     $nombre = $_SESSION['user']['usuario'];
   }
 } else {

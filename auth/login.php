@@ -44,13 +44,13 @@ if (isset($_SESSION['user'])) {
       <button onclick="cambio()">regístrate</button>
     </div>
     <div class="contenedor" id="registrarse">
-      <form action="" method="">
+      <form action="" method="post">
         <label for="correo">correo</label>
         <input type="text" name="correo" />
         <label for="usuario">usuario</label>
         <input type="text" name="usuario" />
         <label for="psswd">contraseña</label>
-        <input type="password" name="psswd" id="contraseña" onblur="contrasena()" required/>
+        <input type="password" name="psswd" id="contraseña" onblur="contrasena()" required />
         <div class="contra"></div>
         <div class="pruebas">
           <span id="minuscula">Una letra <b>minúscula</b></span>
@@ -59,7 +59,7 @@ if (isset($_SESSION['user'])) {
           <span id="signo">Un cáracter <b>especial</b> (- _ . + @)</span>
           <span id="longitud">Longitud <b>mínima</b> de 10 dígitos</span>
         </div>
-        <input type="submit" value="enviar" />
+        <input type="submit" value="enviar" id="botonEnviar" />
       </form>
       <button onclick="cambio()">logeate</button>
     </div>

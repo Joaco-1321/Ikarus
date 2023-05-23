@@ -13,7 +13,7 @@ class Generate
         <div class="contenedor" id="miniHeader">
           <a href="$arr[0]" class="contenedor">
             <img src="">
-            <h1>Tienda de videojuegos</h1>
+            <h1>Ikarus</h1>
           </a>
           <form action="" class="contenedor">
             <input type="text" placeholder="Busca">
