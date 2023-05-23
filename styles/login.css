@@ -90,10 +90,10 @@ form {
   margin-top: 80px;
 }
 
-span{
+form span{
   color: red;
 }
 
-span::before {
+form span::before {
   content: "✘ ";
 }
