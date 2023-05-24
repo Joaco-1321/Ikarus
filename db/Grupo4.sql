@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS rol (
 
 CREATE TABLE IF NOT EXISTS usuario (
 	id INT PRIMARY KEY AUTO_INCREMENT,
-	usuario VARCHAR(45) NOT NULL UNIQUE,
+	usuario VARCHAR(10) NOT NULL UNIQUE,
 	email VARCHAR(45) NOT NULL UNIQUE,
 	contrasena VARCHAR(200) NOT NULL,
 	rol_id INT NOT NULL,
@@ -51,10 +51,10 @@ CREATE TABLE if NOT EXISTS pedido_has_producto (
 INSERT INTO rol VALUES(NULL, 'usuario');
 INSERT INTO rol VALUES(NULL, 'admin');
 
-INSERT INTO usuario (usuario, email, contrasena, rol_id) VALUES ('JoaquinAdmin', 'joaquin@imf.com', 'joaquin1234', 2);
-INSERT INTO usuario (usuario, email, contrasena, rol_id) VALUES ('JonasAdmin', 'jonas@imf.com', 'jonas1234', 2);
+INSERT INTO usuario (usuario, email, contrasena, rol_id) VALUES ('Admin_K', 'joaquin@imf.com', 'joaquin1234', 2);
+INSERT INTO usuario (usuario, email, contrasena, rol_id) VALUES ('Admin_J', 'jonas@imf.com', 'jonas1234', 2);
 INSERT INTO usuario (usuario, email, contrasena, rol_id, nombre, apellidos, direccion, movil) VALUES ('userChulo', 'correoChulo@gmail.com', '12345678', 1, 'Jose', 'Nogales', 'calle chula, 2 Madrid', 123456789);
-INSERT INTO usuario (usuario, email, contrasena, rol_id, direccion) VALUES ('carlosRufiangel', 'carlosrufi@gmail.com', 'springboot', 1, 'casa de carlos');
+INSERT INTO usuario (usuario, email, contrasena, rol_id, direccion) VALUES ('Crufi', 'carlosrufi@gmail.com', 'springboot', 1, 'casa de carlos');
 
 INSERT INTO pedido (fechaRealizacion, fechaEnvio, usuario_id) VALUES (NOW(), '2023-04-22', 1);
 INSERT INTO pedido (fechaRealizacion, fechaEnvio, usuario_id) VALUES (NOW(), '2023-04-23', 1);

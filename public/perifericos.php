@@ -2,6 +2,7 @@
 require_once('../db/Database.php');
 require_once('Generate.php');
 $nombre = 'Usuario';
+$sesion = 'Iniciar';
 
 session_start();
 
@@ -10,6 +11,7 @@ if (isset($_SESSION['user'])) {
     header('Location: ../private/tablaPerifericos.php');
   } else if ($_SESSION['user']['rol_id'] == 1) {
     $nombre = $_SESSION['user']['usuario'];
+    $sesion = 'Cerrar';
   }
 }
 ?>
@@ -29,7 +31,7 @@ if (isset($_SESSION['user'])) {
 
 <body>
   <?php
-  echo Generate::generateNav($nombre, Generate::PUBLIC);
+  echo Generate::generateNav($nombre, $sesion, Generate::PUBLIC);
   ?>
   <main>
     <section>

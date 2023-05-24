@@ -6,7 +6,7 @@ class Generate
   public const PRIVATE = ['../index.php', '../auth/login.php', '../auth/logout.php', 'tablaPerifericos.php', 'tablaVideojuegos.php', '../public/contacto.php'];
   public const AUTH = ['../index.php', 'login.php', '../auth/logout.php', '../public/perifericos.php', '../public/videojuegos.php', '../public/contacto.php'];
 
-  public static function generateNav($nombre, $arr)
+  public static function generateNav($nombre, $sesion, $arr)
   {
     return <<<END
       <nav class="contenedor">
@@ -26,7 +26,7 @@ class Generate
               <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
               <a class="dropdown-item" href="#"><i class="fas fa-user"></i> Ver perfil</a>
               <a class="dropdown-item" href="#"><i class="fas fa-cog"></i> Ajustes</a>
-              <a class="dropdown-item" href="$arr[2]"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
+              <a class="dropdown-item" href="$arr[2]"><i class="fas fa-sign-out-alt"></i> $sesion sesión</a>
             </div>
         </div>
           </div>

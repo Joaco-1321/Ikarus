@@ -35,7 +35,7 @@ if (isset($_SESSION['user'])) {
 
 <body>
   <?php
-  echo Generate::generateNav($nombre, Generate::PRIVATE);
+  echo Generate::generateNav($nombre, 'Cerrar', Generate::PRIVATE);
   ?>
   <main>
     <button class="crear"><a href="create.php">Crear</a></button>

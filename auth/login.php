@@ -30,12 +30,12 @@ if (isset($_SESSION['user'])) {
 
 <body>
   <?php
-  echo Generate::generateNav($nombre, Generate::AUTH);
+  echo Generate::generateNav($nombre, 'Iniciar', Generate::AUTH);
   ?>
   <main class="contenedor">
     <div class="contenedor" id="login">
       <form action="comprobar.php" method="post">
-        <label for="usuario">usuario</label>
+        <label for="usuario">correo</label>
         <input type="text" name="user" />
         <label for="psswd">contraseña</label>
         <input type="password" name="pass" />
