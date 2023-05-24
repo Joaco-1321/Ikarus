@@ -4,8 +4,8 @@
     require_once('../db/Database.php');
     $correo = $_POST['correo'];
     $user = $_POST['usuario'];
-    $passwd = $_POST['psswd'];
-    $datos = [$_POST['correo'], $_POST['usuario'], $_POST['psswd']];
+    $passwd = password_hash($_POST['psswd'], PASSWORD_DEFAULT);
+    $datos = [$correo, $user, $passwd];
 
     $resultado = Database::findByEmail($correo, $user);
 
@@ -16,8 +16,6 @@
        $resultadoLogin = Database::login($correo, $passwd);
 
        if ($resultadoLogin == null) {
-        echo 'es null';
-        exit();
         header('Location: login.php');
         } else {
           session_start();
@@ -25,5 +23,3 @@
           header('Location: ../index.php');
       }
     }
-
-?>

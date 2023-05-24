@@ -77,12 +77,17 @@ class Database
 
   public static function login($email, $password)
   {
-    $sql = "SELECT * FROM usuario WHERE email = '$email' AND contrasena = '$password'";
+    $sql = "SELECT * FROM usuario WHERE email = '$email'";
 
-    $user = self::conectar()->query($sql);
+    $existe = self::conectar()->query($sql);
 
-    if ($user != null) {
-      return $user->fetch(PDO::FETCH_ASSOC);
+    if ($existe != null) {
+      $user = $existe->fetch(PDO::FETCH_ASSOC);
+      if (password_verify($password, $user['contrasena'])) {
+        return $user;
+      } else {
+        return null;
+      }
     } else {
       return null;
     }
