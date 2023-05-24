@@ -1,10 +1,10 @@
 <?php
 class Generate
 {
-  public const INDEX = ['index.php', 'auth/login.php', 'auth/logout.php', 'public/perifericos.php', 'public/videojuegos.php', 'public/contacto.php'];
-  public const PUBLIC = ['../index.php', '../auth/login.php', '../auth/logout.php', 'perifericos.php', 'videojuegos.php', 'contacto.php'];
-  public const PRIVATE = ['../index.php', '../auth/login.php', '../auth/logout.php', 'tablaPerifericos.php', 'tablaVideojuegos.php', '../public/contacto.php'];
-  public const AUTH = ['../index.php', 'login.php', '../auth/logout.php', '../public/perifericos.php', '../public/videojuegos.php', '../public/contacto.php'];
+  public const INDEX = ['index.php', 'private/dashboardEdicion.php', 'auth/logout.php', 'public/perifericos.php', 'public/videojuegos.php', 'public/contacto.php'];
+  public const PUBLIC = ['../index.php', '../private/dashboardEdicion.php', '../auth/logout.php', 'perifericos.php', 'videojuegos.php', 'contacto.php'];
+  public const PRIVATE = ['../index.php', 'dashboardEdicion.php', '../auth/logout.php', 'tablaPerifericos.php', 'tablaVideojuegos.php', '../public/contacto.php'];
+  public const AUTH = ['../index.php', '../private/dashboardEdicion.php', '../auth/logout.php', '../public/perifericos.php', '../public/videojuegos.php', '../public/contacto.php'];
 
   public static function generateNav($nombre, $sesion, $arr)
   {
@@ -24,8 +24,7 @@ class Generate
               <i class="fas fa-user"></i>
               <p>$nombre</p>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item" href="../private/dashboardVision.php"><i class="fas fa-user"></i> Ver perfil</a>
-              <a class="dropdown-item" href="../private/dashboardEdicion.php"><i class="fas fa-cog"></i> Ajustes</a>
+              <a class="dropdown-item" href="$arr[1]"><i class="fas fa-cog"></i> Ajustes</a>
               <a class="dropdown-item" href="$arr[2]"><i class="fas fa-sign-out-alt"></i> $sesion sesión</a>
             </div>
         </div>

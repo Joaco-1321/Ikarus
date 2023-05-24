@@ -5,11 +5,7 @@
   $nombre = 'Usuario';
 
   if (isset($_SESSION['user'])) {
-    if ($_SESSION['user']['rol_id'] == 1) {
-      header('Location: ../index.php');
-    } else if ($_SESSION['user']['rol_id'] == 2) {
       $nombre = $_SESSION['user']['usuario'];
-    }
   } else {
     header('Location: ../auth/login.php');
   }  
@@ -37,8 +33,8 @@
       <input  type="hidden" name="correoParaEvaluar" value="<?php echo $usuario['email'] ?>">
       <div class="usuario">Usuario: <br><input type="text" name="nombre" value="<?php echo $usuario['usuario'] ?>"></div>
       <div class="email">Correo: <br><input  type="text" name="correo" value="<?php echo $usuario['email'] ?>"></div>
-      <div class="password">Contraseña antigua: <br><input type="text" name="oldPass" value=""></div>
-      <div class="newpass"> Contraseña nueva: <br><input type="text" name="newPass" value=""></div>
+      <div class="password">Contraseña antigua: <br><input type="password" name="oldPass" value=""></div>
+      <div class="newpass"> Contraseña nueva: <br><input type="password" name="newPass" value=""></div>
       <button class="boton" type="submit">Actualizar</button>
     </form>
   </main>

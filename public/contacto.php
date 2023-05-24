@@ -37,7 +37,7 @@ if (isset($_SESSION['user'])) {
   <main>
     <div id="principal">
       <label for="caja">
-        <div id="caja1"><span id="texto">COMPRA DE PRODUCRO DIGITAL</span></div>
+        <div id="caja1"><span id="texto">COMPRA DE PRODUCTO DIGITAL</span></div>
       </label>
       <label for="cajafisico">
         <div id="caja2"><span id="texto">COMPRA DE PRODUCTO FISICO</span></div>
