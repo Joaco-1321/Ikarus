@@ -24,8 +24,8 @@ class Generate
               <i class="fas fa-user"></i>
               <p>$nombre</p>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item" href="#"><i class="fas fa-user"></i> Ver perfil</a>
-              <a class="dropdown-item" href="#"><i class="fas fa-cog"></i> Ajustes</a>
+              <a class="dropdown-item" href="../private/dashboardVision.php"><i class="fas fa-user"></i> Ver perfil</a>
+              <a class="dropdown-item" href="../private/dashboardEdicion.php"><i class="fas fa-cog"></i> Ajustes</a>
               <a class="dropdown-item" href="$arr[2]"><i class="fas fa-sign-out-alt"></i> $sesion sesión</a>
             </div>
         </div>

@@ -51,6 +51,14 @@ class Database
     return $user->fetch(PDO::FETCH_ASSOC);
   }
 
+  public static function findByUser($user)
+  {
+    $sql = "SELECT * FROM usuario WHERE usuario = '$user'";
+    $user = self::conectar()->query($sql);
+    return $user->fetch(PDO::FETCH_ASSOC);
+  }
+
+
   public static function save($arr)
   {
     $sql = "INSERT INTO producto(nombre, tipo, precio, stock, review, ruta) VALUES('$arr[0]', '$arr[1]', $arr[2], $arr[3], $arr[4], '$arr[5]')";
@@ -66,6 +74,12 @@ class Database
   public static function update($arr)
   {
     $sql = "UPDATE producto SET nombre = '$arr[1]', tipo = '$arr[2]', precio = $arr[3], stock = $arr[4], review = $arr[5], ruta='$arr[6]' WHERE id = $arr[0]";
+    self::conectar()->query($sql);
+  }
+
+  public static function updateUser($arr, $correo)
+  {
+    $sql = "UPDATE usuario SET usuario = '$arr[0]', email = '$arr[1]', contrasena = '$arr[2]' WHERE email = '$correo'";
     self::conectar()->query($sql);
   }
 
