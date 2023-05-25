@@ -27,11 +27,11 @@ class Database
   public static function getAll($tabla)
   {
     if ($tabla == 1) {
-      $sql = "SELECT * FROM producto where tipo='periferico'";
+      $sql = "SELECT * FROM 4_producto where tipo='periferico'";
       $resultado = self::conectar()->query($sql);
     }
     if ($tabla == 2) {
-      $sql = "SELECT * FROM producto where tipo='videojuego'";
+      $sql = "SELECT * FROM 4_producto where tipo='videojuego'";
       $resultado = self::conectar()->query($sql);
     }
     return $resultado;
@@ -39,21 +39,21 @@ class Database
 
   public static function findById($id)
   {
-    $sql = "SELECT * FROM producto WHERE id = $id";
+    $sql = "SELECT * FROM 4_producto WHERE id = $id";
     $ordenador = self::conectar()->query($sql);
     return $ordenador->fetch(PDO::FETCH_ASSOC);
   }
 
   public static function findByEmail($email, $user)
   {
-    $sql = "SELECT * FROM usuario WHERE email = '$email' and usuario = '$user'";
+    $sql = "SELECT * FROM 4_usuario WHERE email = '$email' and usuario = '$user'";
     $user = self::conectar()->query($sql);
     return $user->fetch(PDO::FETCH_ASSOC);
   }
 
   public static function findByUser($user)
   {
-    $sql = "SELECT * FROM usuario WHERE usuario = '$user'";
+    $sql = "SELECT * FROM 4_usuario WHERE usuario = '$user'";
     $user = self::conectar()->query($sql);
     return $user->fetch(PDO::FETCH_ASSOC);
   }
@@ -61,37 +61,37 @@ class Database
 
   public static function save($arr)
   {
-    $sql = "INSERT INTO producto(nombre, tipo, precio, stock, review, ruta) VALUES('$arr[0]', '$arr[1]', $arr[2], $arr[3], $arr[4], '$arr[5]')";
+    $sql = "INSERT INTO 4_producto(nombre, tipo, precio, stock, review, ruta) VALUES('$arr[0]', '$arr[1]', $arr[2], $arr[3], $arr[4], '$arr[5]')";
     self::conectar()->query($sql);
   }
 
   public static function nuevoUser($arr)
   {
-    $sql = "INSERT INTO usuario (usuario, email, contrasena, rol_id) VALUES ('$arr[1]', '$arr[0]', '$arr[2]', 1)";
+    $sql = "INSERT INTO 4_usuario (usuario, email, contrasena, rol_id) VALUES ('$arr[1]', '$arr[0]', '$arr[2]', 1)";
     self::conectar()->query($sql);
   }
 
   public static function update($arr)
   {
-    $sql = "UPDATE producto SET nombre = '$arr[1]', tipo = '$arr[2]', precio = $arr[3], stock = $arr[4], review = $arr[5], ruta='$arr[6]' WHERE id = $arr[0]";
+    $sql = "UPDATE 4_producto SET nombre = '$arr[1]', tipo = '$arr[2]', precio = $arr[3], stock = $arr[4], review = $arr[5], ruta='$arr[6]' WHERE id = $arr[0]";
     self::conectar()->query($sql);
   }
 
   public static function updateUser($arr, $correo)
   {
-    $sql = "UPDATE usuario SET usuario = '$arr[0]', email = '$arr[1]', contrasena = '$arr[2]' WHERE email = '$correo'";
+    $sql = "UPDATE 4_usuario SET usuario = '$arr[0]', email = '$arr[1]', contrasena = '$arr[2]' WHERE email = '$correo'";
     self::conectar()->query($sql);
   }
 
   public static function delete($id)
   {
-    $sql = "DELETE FROM producto WHERE id = $id";
+    $sql = "DELETE FROM 4_producto WHERE id = $id";
     self::conectar()->query($sql);
   }
 
   public static function login($email, $password)
   {
-    $sql = "SELECT * FROM usuario WHERE email = '$email'";
+    $sql = "SELECT * FROM 4_usuario WHERE email = '$email'";
 
     $existe = self::conectar()->query($sql);
 
