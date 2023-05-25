@@ -43,8 +43,8 @@ CREATE TABLE if NOT EXISTS 4_pedido_has_producto (
 	pedido_id INT NOT NULL,
 	producto_id INT NOT NULL,
 	cantidad INT NOT NULL,
-	FOREIGN KEY(pedido_id) REFERENCES pedido(id),
-	FOREIGN KEY(producto_id) REFERENCES producto(id),
+	FOREIGN KEY(pedido_id) REFERENCES 4_pedido(id),
+	FOREIGN KEY(producto_id) REFERENCES 4_producto(id),
 	PRIMARY KEY(pedido_id, producto_id)
 )ENGINE = INNODB;
 
@@ -54,7 +54,7 @@ INSERT INTO 4_rol VALUES(NULL, 'admin');
 -- Joaquin_1234
 INSERT INTO 4_usuario (usuario, email, contrasena, rol_id) VALUES ('Admin_K', 'joaquin@imf.com', '$2y$10$aUIeoBuohaVacisv1Nje8.BTv45bMYZy0jhB94gwCNjA3VYC.ojju', 2);
 -- Jonas_1234
-INSERT INTO 4_usuario (4suario, email, contrasena, rol_id) VALUES ('Admin_J', 'jonas@imf.com', '$2y$10$h35Ht/ur7Jpy7qI/hE2ILui0L55x3rnb6chiSVfytzaZPgl8NC1q2', 2);
+INSERT INTO 4_usuario (usuario, email, contrasena, rol_id) VALUES ('Admin_J', 'jonas@imf.com', '$2y$10$h35Ht/ur7Jpy7qI/hE2ILui0L55x3rnb6chiSVfytzaZPgl8NC1q2', 2);
 -- Chulo_1234
 INSERT INTO 4_usuario (usuario, email, contrasena, rol_id, nombre, apellidos, direccion, movil) VALUES ('userChulo', 'correoChulo@gmail.com', '$2y$10$rmF0DDnVgmpLa1.dAyDIe.DOgFvCuRBj16gd7YnmWJTVhrrBSkyru', 1, 'Jose', 'Nogales', 'calle chula, 2 Madrid', 123456789);
 -- JavaSpringBoot_1234
